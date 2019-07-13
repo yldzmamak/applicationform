@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <div class="form_main">
+        <h4 class="heading"><strong>Bayilik Ön Başvuru Formu </strong> <span></span></h4>
+        <div class="form">
+          <form action="contact_send_mail.php" method="post" id="contactFrm" name="contactFrm">
+            <input type="text" required="" [(ngModel)]="formApplication.fullName"  placeholder="İsim Soyisim:" value="" name="name" class="txt">
+            <input type="text" required="" [(ngModel)]="formApplication.tcNo"  placeholder="TC Kimlik No" value="" name="mob" class="txt">
+            <input type="text" required="" [(ngModel)]="formApplication.address"  placeholder="Adres" value="" name="email" class="txt">
+            <input type="text" required="" [(ngModel)]="formApplication.telNo" placeholder="Telefon Numarası" value="" name="email" class="txt">
+            <input type="text" required="" [(ngModel)]="formApplication.email" placeholder="E-Posta" value="" name="email" class="txt">
+            <input type="text" required="" [(ngModel)]="formApplication.birthday"  placeholder="Doğum Tarihi" value="" name="email" class="txt">
+            <div class="form-group">
+              <label>Perakende ticareti ile uğraştınız mı?</label>
+              <input type="text" required="" [(ngModel)]="formApplication.question1"  placeholder="Perakende ticareti ile uğraştınız mı?" value="" name="email" class="txt">
+            </div>
+            <div class="form-group">
+              <label>LOKUMCU BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR?</label>
+              <input type="text" required="" [(ngModel)]="formApplication.question2"  placeholder="LOKUMCU BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR?" value="" name="email" class="txt">
+            </div>
+            <div class="form-group">
+              <label>HANGİ İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ?</label>
+              <input type="text" required="" [(ngModel)]="formApplication.question3" placeholder="HANGİ İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ?" value="" name="email" class="txt">
+            </div>
+            <div class="form-group">
+              <label>YATIRIM MİKTARINIZ NEDİR?</label>
+              <input type="text" required="" [(ngModel)]="formApplication.question4" placeholder="YATIRIM MİKTARINIZ NEDİR?" value="" name="email" class="txt">
+            </div>
+            <div class="form-group">
+              <label>EKLEMEK İSTEDİKLERİNİZ:</label>
+              <textarea placeholder="EKLEMEK İSTEDİKLERİNİZ:" [(ngModel)]="formApplication.question5" name="mess" type="text" class="txt_3"></textarea>
+            </div>
+            <input type="submit" value="submit" (click)="addFormApplication(formApplication)" name="submit" class="txt2">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

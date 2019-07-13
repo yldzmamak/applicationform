@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/forminformations")
 public class FormInformationController {
@@ -20,6 +21,7 @@ public class FormInformationController {
         return formInformationService.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @ResponseBody
     @PostMapping
     public FormInformationDto save(@RequestBody FormInformationDto formInformationDto) {
