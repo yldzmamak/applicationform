@@ -7,14 +7,14 @@ import {HttpClient} from "@angular/common/http";
 
 export class FormService {
   constructor(
-    @Inject('apiUrl')
+    @Inject('apiUrl') //app.module de provider da tanımlanan apiUrl yi alıyoruz.
     private apiUrl,
     private http:HttpClient){
   }
   
 
   addApplicationForm(obj){
-    return this.http.post(this.apiUrl + '/forminformations/',obj);
+    return this.http.post(this.apiUrl + '/forminformations/',obj); //genel url ye istekte bulunacağımız yolu ekliyoruz
   }
 
   getAllApplicationForms(){

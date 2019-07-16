@@ -1,6 +1,9 @@
 form_main {
   width: 100%;
 }
+mat-form-field {
+  width: 100%;
+}
 .form_main h4 {
   font-family: roboto;
   font-size: 20px;
@@ -54,4 +57,12 @@ form_main {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   color: #5793ef;
   transition: all 0.5s ease 0s;
+}
+.container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width:100%;
 }

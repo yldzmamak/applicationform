@@ -1,1 +1,77 @@
-<p>list works!</p>
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef> Ad Soyad </th>
+    <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="eMail">
+    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+  <ng-container matColumnDef="telNo">
+  <th mat-header-cell *matHeaderCellDef> Telefon </th>
+  <td mat-cell *matCellDef="let element"> {{element.telNo}} </td>
+</ng-container>
+  <ng-container matColumnDef="tcNo">
+    <th mat-header-cell *matHeaderCellDef> Tc Kimlik No </th>
+    <td mat-cell *matCellDef="let element"> {{element.tcNo}} </td>
+  </ng-container>
+  <ng-container matColumnDef="birthday">
+    <th mat-header-cell *matHeaderCellDef> Doğum Tarihi </th>
+    <td mat-cell *matCellDef="let element"> {{element.birthday | date: 'dd/MM/yyyy'}} </td>
+  </ng-container>
+
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+        <div class="container">
+
+          <div style="float: right">
+            <div style="font-weight:bold">
+              ADRES:
+            </div> {{element.address}}
+          </div>
+          <div >
+            <div style="font-weight:bold" >
+              PERAKENDE TİCARETİ İLE UĞRAŞTINIZ MI? <br/>
+            </div> {{element.question1===null? "-Soruya cevap verilmedi.": element.question1}}
+          </div>
+          <div>
+            <div style="font-weight:bold">
+              LOKUMCU BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR? <br/>
+            </div> {{element.question2===null? "-Soruya cevap verilmedi.": element.question2}}
+          </div>
+          <div>
+            <div style="font-weight:bold">
+              HANGİ İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ? <br/>
+            </div> {{element.question3===null? "-Soruya cevap verilmedi.": element.question3}}
+          </div>
+          <div>
+            <div style="font-weight:bold">
+              YATIRIM MİKTARINIZ NEDİR? <br/>
+            </div> {{element.question4===null? "-Soruya cevap verilmedi.": element.question4}}
+          </div>
+          <div>
+            <div style="font-weight:bold">
+              EKLEMEK İSTEDİKLERİNİZ: <br/>
+            </div> {{element.question5===null? "-Soruya cevap verilmedi.": element.question5}}
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

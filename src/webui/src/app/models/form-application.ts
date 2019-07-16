@@ -4,7 +4,7 @@ export class FormApplication {
   private address: String;
   private telNo: String;
   private email: String;
-  private birthday: String;
+  private birthday: Date;
   private question1: String;
   private question2: String;
   private question3: String;
