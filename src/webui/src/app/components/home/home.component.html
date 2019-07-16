@@ -44,32 +44,32 @@
                      readonly (click)="picker.open()">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input matInput #question1 required="" [(ngModel)]="formApplication.question1"
                      placeholder="Perakende ticareti ile uğraştınız mı?" value="" name="question1" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input matInput #question2 required="" [(ngModel)]="formApplication.question2"
                      placeholder="LOKUMCU BABA’YI TERCİH ETMENİZİN SEBEBİ NEDİR?" value="" name="question2" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input matInput #question3 required="" [(ngModel)]="formApplication.question3"
                      placeholder="HANGİ İL/İLÇE/SEMT İÇİN LOKUMCU BABA İŞLETMECİLİĞİ DÜŞÜNÜYORSUNUZ?" value=""
                      name="question3" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input matInput #question4 required="" [(ngModel)]="formApplication.question4"
                      placeholder="YATIRIM MİKTARINIZ NEDİR?" value="" name="question4" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <div class="form-group">
