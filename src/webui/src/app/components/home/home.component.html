@@ -7,39 +7,38 @@
           <form id="appForm" name="appForm" #appForm="ngForm">
 
             <mat-form-field>
-              <input matInput #fullName required [(ngModel)]="formApplication.fullName" placeholder="İsim Soyisim:"
+              <input matInput #fullName required type="text" [(ngModel)]="formApplication.fullName" placeholder="İsim Soyisim:"
                      name="fullName">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput #tcNo required="" type="number" maxlength="11" [(ngModel)]="formApplication.tcNo" placeholder="TC Kimlik No" value=""
-                     name="tcNo" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <input matInput #tcNo required type="text" (keypress)="keyPress($event)" minlength=11 maxlength=11 [(ngModel)]="formApplication.tcNo" placeholder="TC Kimlik No" value=""
+                     name="tcNo">
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan, TCKN geçerli değil!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput #address required="" [(ngModel)]="formApplication.address" placeholder="Adres" value=""
-                     name="address" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
+              <input matInput #address type="text" required [(ngModel)]="formApplication.address" placeholder="Adres" value=""
+                     name="address">
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput #telNo required="" type="tel" maxlength="11" th:field="*{phone}"  [(ngModel)]="formApplication.telNo" placeholder="Telefon Numarası"
-                     value=""
+              <input matInput #telNo required (keypress)="keyPress($event)" minlength=11 maxlength=11 [(ngModel)]="formApplication.telNo" placeholder="Telefon Numarası"
                      name="telNo" class="txt">
-              <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}} </mat-error>
+              <mat-error *ngIf="appForm.invalid">Zorunlu alan!</mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input matInput #email required type="email" email [formControl]="formControl" [(ngModel)]="formApplication.email"
-                     placeholder="E-Posta" value=""
+                     placeholder="E-Posta"
                      name="email" class="txt">
               <mat-error *ngIf="appForm.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput #birthday required="" [matDatepicker]="picker" placeholder="Doğum Tarihi"
+              <input matInput #birthday required [matDatepicker]="picker" placeholder="Doğum Tarihi"
                      [(ngModel)]="formApplication.birthday"
                      name="dateOfBirth" id="dateOfBirth"
                      readonly (click)="picker.open()">

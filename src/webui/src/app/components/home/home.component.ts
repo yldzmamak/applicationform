@@ -10,11 +10,6 @@ import {FormControl, NgForm, Validators} from "@angular/forms";
 })
 export class HomeComponent implements OnInit {
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
   formApplication:FormApplication=new FormApplication();
 
   constructor(
@@ -28,6 +23,15 @@ export class HomeComponent implements OnInit {
     Validators.required,
     Validators.email
   ]);
+
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
 
   ngOnInit() {
   }
@@ -44,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   getErrorMessage() {
     return this.formControl.hasError('required') ? 'Zorunlu alan!' :
-      this.formControl.hasError('email') ? 'gerçerli mail girin' : '';
+      this.formControl.hasError('email') ? 'Geçerli bir mail girin' : '';
   }
 
 }
